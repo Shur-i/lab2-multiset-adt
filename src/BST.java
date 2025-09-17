@@ -4,6 +4,7 @@
  * You can also see <a href="https://www.teach.cs.toronto.edu/~csc148h/notes/binary-search-trees/bst_implementation.html">
  *     CSC148 Course Notes Section 8.5 BST Implementation and Search</a>
  * if you want a refresher on BSTs, but it is not required to complete this assignment.
+ * Added this comment to identify changes
  */
 public class BST {
     // we use Integer here so that we can set the root to null. This is the same idea as
