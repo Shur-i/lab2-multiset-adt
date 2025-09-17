@@ -29,7 +29,7 @@ public class BST {
 
 
     public boolean isEmpty() {
-        return this.root == null;
+        return false; // TODO implement me!
     }
 
     public boolean contains(int item) {
@@ -47,116 +47,33 @@ public class BST {
 
 
     public void insert(int item) {
-        if (this.isEmpty()) {
-            this.root = item;
-            this.left =  new BST();
-            this.right = new BST();
-        }
-        else if(item <= this.root) {
-            this.left.insert(item);
-        }
-        else{
-            this.right.insert(item);
-        }
+
     }
 
 
     public void delete(int item) {
-        if (this.isEmpty()){
-            return;
-        }
-        else if (this.root == item) {
-            this.deleteRoot();
-        }
-        else if (item < this.root) {
-            this.left.delete(item);
-        }
-        else if (item > this.root) {
-            this.right.delete(item);
-        }
+
     }
 
     private void deleteRoot() {
-        if (this.left.isEmpty() && this.right.isEmpty()) {
-            this.root = null;
-            this.left = null;
-            this.right = null;
-        }
-        else if(this.left.isEmpty()){
-            int tempRoot = this.right.root;
-            BST tempLeft = this.right.left;
-            BST tempRight = this.right.right;
 
-            this.root = tempRoot;
-            this.left =  tempLeft;
-            this.right = tempRight;
-        } else if (this.right.isEmpty()) {
-            int tempRoot = this.left.root;
-            BST tempLeft = this.left.left;
-            BST tempRight = this.left.right;
-
-            this.root = tempRoot;
-            this.left =  tempLeft;
-            this.right = tempRight;
-        }
-        else{
-            this.root = this.left.extractMax();
-        }
     }
 
 
     private int extractMax() {
-        if (this.right.isEmpty() && this.left.isEmpty()) {
-            int temp =  this.root;
-            this.root = null;
-            return temp;
-        }
-        else if (this.right.isEmpty()) {
-            int max = this.root;
-            int tempRoot = this.left.root;
-            BST tempLeft = this.left.left;
-            BST tempRight = this.left.right;
-
-            this.root = tempRoot;
-            this.left =  tempLeft;
-            this.right = tempRight;
-
-            return max;
-        }
-        else{
-            return this.right.extractMax();
-        }
+        return -1;
     }
 
     public int height() {
-        if (this.isEmpty()) {
-            return 0;
-        }
-        else{
-            return (Math.max(this.left.height(), this.right.height()) + 1);
-        }
+        return -1;
     }
 
     public int count(int item) {
-        if(this.isEmpty()){
-            return 0;
-        }
-        else if(this.root>item){
-            return this.left.count(item);
-        }
-        else if (item==this.root){
-            return 1 + this.left.count(item) + this.right.count(item);
-        }
-        else{
-            return this.right.count(item);
-        }
+        return -1;
     }
 
     public int getSize() {
-        if (this.isEmpty()) {
-            return 0;
-        }
-        return 1 + this.left.getSize() + this.right.getSize();
+        return -1;
     }
 
     public static void main(String[] args) {
@@ -168,16 +85,6 @@ public class BST {
         int a = 1;
         bst.insert(a);
         System.out.println(bst.contains(a));
-        System.out.println(bst.count(a));
-        for (int i = 0; i < 6; i++){
-            bst.insert(i);
-        }
-        System.out.println(bst.height());
-        bst.delete(a);
-        System.out.println(bst.contains(a));
-        System.out.println(bst.getSize());
-        System.out.println(bst.height());
-        System.out.println(bst.extractMax());
     }
 
 }
